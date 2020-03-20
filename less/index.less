@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -20,7 +21,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 62.5%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -31,6 +32,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Fredericka the Great', cursive;
 }
 ol, ul {
 	list-style: none;
@@ -50,10 +52,180 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	max-width: 100%;
 }
 
 html, body {
     height: 100%;
 }
 
+// Mixins
+.flex-center(){
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.table(){
+	border: 1px solid lightgrey;
+	width: 100%;
+	padding: 3%;
+	text-align: left;
+}
+// Variables
+@background-color: #e3e3e3;
+// Nav-bar
+nav{
+	.flex-center();
+	justify-content: flex-end;
+	margin:2% 0;
+	a{
+		text-decoration: none;
+		margin: 0 2%;
+		&:hover{
+			color:red;
+		}
+	}
+	@media (max-width:500px) {
+		.flex-center();
+	}
+}
+// Header
+.header {
+	.flex-center();
+	background-color: @background-color;
+	flex-direction: column;
+	padding: 5% 3%;
+	div{
+		padding: 2% 1%;
+		img{
+			width: 60%;
+		}
+	}
+	.header-top{
+		border-bottom: 1px solid grey;
+	}
+	h1{
+		margin-top: 0.5%;
+		font-size: 3rem;
+	}
+	p{
+		font-size: 1.5rem;
+	}
+	button{
+		padding: 1% 2%;
+		margin-top: 1.5%;
+		border-radius: 0.5rem;
+		a{
+			text-decoration: none;
+			font-size: 1.3rem;
+		}
+		&:hover{
+			background-color: @background-color;
+		}
+	}
+	@media (max-width:500px){
+		div{
+			.flex-center();
+			img{
+				width: 80%;
+			}
+			h1{
+				margin-top: 2%;
+			}
+			p{
+				padding: 3%;
+				width: 100%;
+			}
+		}
+	}
+}
+// About section- intro and skills
+#about{
+	.flex-center();
+	div{
+		width: 44%;
+		margin: 3%;
+	}
+	h2{
+		font-size: 2rem;
+		margin: 2% 0;
+	}
+	img{
+		max-height: 100%;
+	}
+	@media (max-width:500px){
+		div{
+			width: 70%;
+			margin-top: 4%;
+		}
+		h2{
+			margin: 0;
+		}
+	}
+}
+
+.skills{
+	table, tr, td{
+		.table();
+		img{
+			width: 30%;
+		}
+	}
+	@media (max-width:500px){
+		table{
+			img{
+				height: 10%;
+			}
+		}
+
+	}
+}
+// Work 
+.work-history{
+	h2{
+		font-size: 2rem;
+	}
+	div{
+		margin: 0 3%;
+	}
+	table{
+		.table();
+		border-left: 0;
+		border-right: 0;
+		tr{
+			&:nth-child(even){
+				background-color: @background-color;
+			}
+		}
+		th,td{
+			padding: 1%;
+		}
+	}
+	@media (max-width:500px){
+		.flex-center();
+		div{
+			width: 70%;
+		}
+	}
+}
+// Contact
+#contact{
+	div{
+		margin: 3%;
+		color: #4353e6;
+	}
+	@media (max-width:500px){
+		.flex-center();
+		div{
+			width: 50%;
+			text-align: center;
+		}
+	}
+}
+// footer
+.footer{
+	.flex-center();
+	padding: 2%;
+	background-color: @background-color;
+}
